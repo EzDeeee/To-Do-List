@@ -92,7 +92,6 @@ function updateLocalStorage() {
     const textEl = li.querySelector(".task-text");
     const taskText = textEl ? textEl.textContent.trim() : "";
     const completed = li.classList.contains("completed");
-    tasks.push({ text: taskText, completed });
 
     if (taskText !== "") {
       tasks.push({ text: taskText, completed });
