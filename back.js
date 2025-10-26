@@ -93,6 +93,10 @@ function updateLocalStorage() {
     const taskText = textEl ? textEl.textContent.trim() : "";
     const completed = li.classList.contains("completed");
     tasks.push({ text: taskText, completed });
+
+    if (taskText !== "") {
+      tasks.push({ text: taskText, completed });
+    }
   });
   localStorage.setItem("tasks", JSON.stringify(tasks));
 
@@ -100,6 +104,7 @@ function updateLocalStorage() {
 function loadTasks() {
   const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
   savedTasks.forEach((task) => {
+    if (!task.text || task.text.trim() === "") return;
     const li = document.createElement("li");
 
     const taskContent = document.createElement("div");
