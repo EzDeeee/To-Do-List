@@ -89,7 +89,8 @@ function showAlert(message) {
 function updateLocalStorage() {
  const tasks = [];
  document.querySelectorAll("#task-list li").forEach((li) => {
-    const taskText = li.querySelector(".task-text").textContent.trim;
+    const textEl = li.querySelector(".task-text");
+    const taskText = textEl ? textEl.textContent.trim() : "";
     const completed = li.classList.contains("completed");
     tasks.push({ text: taskText, completed });
   });
